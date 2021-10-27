@@ -1,0 +1,10 @@
+<h1>Angular File Upload</h1>
+<span class="text-mute">{{file_error}}</span>
+<form [formGroup]="fileForm" (ngSubmit)="Submit()">
+  <input type="file" formControlName="file_upload" accept=".mp4,.pdf" (change)="onfileSelected($event)">
+  <span class="text-mute" *ngIf="!fileForm.controls['file_upload'].valid && fileForm.controls['file_upload']?.touched"> Please Select File</span>
+  <div *ngIf="disable_file_uplaod_button">
+    <button type="submit" class="btn btn-default" [disabled]="!fileForm.valid">Upload</button>
+  </div>
+ 
+</form>
